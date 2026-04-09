@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { RouterLink } from "vue-router";
+import { RouterLink } from 'vue-router'
 
 withDefaults(
   defineProps<{
@@ -9,7 +9,7 @@ withDefaults(
     imageSrc?: string;
   }>(),
   {
-    imageSrc: "/img.png",
+    imageSrc: '/img.png',
   },
 );
 </script>
@@ -21,7 +21,7 @@ withDefaults(
       <div class="people-card__caption typography-label">
         {{ name.toUpperCase() }}
       </div>
-      <span class="typography-caption">{{ ageInYears }} years old</span>
+      <span class="typography-body-reg">{{ ageInYears }} years old</span>
     </div>
   </RouterLink>
 </template>
