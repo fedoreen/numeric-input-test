@@ -59,7 +59,7 @@ const syncShellWidth = () => {
 
   const width = span.getBoundingClientRect().width;
   shellWidthPx.value = Math.max(props.minWidthPx, width + shellHorizontalChromePx);
-}
+};
 
 const applyDigits = (target: HTMLInputElement, digits: string, caretDigits: number) => {
   modelValue.value = Number(digits) || 0;
@@ -69,15 +69,15 @@ const applyDigits = (target: HTMLInputElement, digits: string, caretDigits: numb
     target.setSelectionRange(pos, pos);
     syncShellWidth();
   });
-}
+};
 
 const handleBeforeInput = (event: InputEvent) => {
-  if (event.inputType === 'insertText' || event.inputType === 'insertCompositionText') {
+  if (event.inputType === "insertText" || event.inputType === "insertCompositionText") {
     if (event.data && /[^\d]/.test(event.data)) {
       event.preventDefault();
     }
   }
-}
+};
 
 const handlePaste = (event: ClipboardEvent) => {
   event.preventDefault();
@@ -95,7 +95,7 @@ const handlePaste = (event: ClipboardEvent) => {
     integerDigits.value.slice(0, digitStart) + pasted + integerDigits.value.slice(digitEnd);
 
   applyDigits(target, next, digitStart + pasted.length);
-}
+};
 
 const handleInput = (event: Event) => {
   const target = event.target as HTMLInputElement;
@@ -105,7 +105,7 @@ const handleInput = (event: Event) => {
   const nextDigits = digitsOnly(target.value);
 
   applyDigits(target, nextDigits, digitsLeft);
-}
+};
 
 watchEffect(() => {
   nextTick(syncShellWidth);
@@ -114,7 +114,7 @@ watchEffect(() => {
 
 <template>
   <div class="numeric-input">
-    <div :id="labelId" class="numeric-input__label">
+    <div :id="labelId" class="numeric-input__label typography-label">
       {{ label }}
     </div>
     <div class="numeric-input__row">
@@ -151,15 +151,7 @@ watchEffect(() => {
 }
 
 .numeric-input:focus-within .numeric-input__label {
-  color: #3d06d7;
-}
-
-.numeric-input__label {
-  font-family: "Koulen", system-ui, sans-serif;
-  font-size: 16px;
-  line-height: 15px;
-  letter-spacing: 0.02em;
-  color: #1e0e4c;
+  color: var(--app-color-accent);
 }
 
 .numeric-input__row {
@@ -178,20 +170,19 @@ watchEffect(() => {
   overflow: hidden;
   padding: 8px 16px 8px 8px;
   border-radius: 6px;
-  border: 1px solid #cfcadf;
+  border: 1px solid var(--app-color-border);
   box-shadow: 0 0 0 0 transparent;
-  background: #fff;
   max-width: 100%;
   cursor: text;
 }
 
 .numeric-input__shell:hover:not(:focus-within) {
-  border-color: #aa9dce;
+  border-color: var(--app-color-border-hover);
 }
 
 .numeric-input__shell:focus-within {
-  border-color: #906fee;
-  box-shadow: 0 0 0 0.5px #906fee;
+  border-color: var(--app-color-border-focus);
+  box-shadow: 0 0 0 0.5px var(--app-color-border-focus);
 }
 
 .numeric-input__text-slot {
@@ -213,28 +204,24 @@ watchEffect(() => {
 
 .numeric-input__measure,
 .numeric-input__field {
-  font-family: "Inter", system-ui, sans-serif;
-  font-weight: 500;
-  font-size: 18px;
-  line-height: 1;
-  color: #cfcadf;
+  font-family: var(--typography-body-med-font-family);
+  font-weight: var(--typography-body-med-font-weight);
+  font-size: var(--typography-body-med-font-size);
+  line-height: var(--typography-body-med-line-height);
+  color: var(--app-color-text-muted);
 }
 
 .numeric-input__shell:focus-within .numeric-input__field {
-  color: #1e0e4c;
+  color: var(--app-color-text);
 }
 
 .numeric-input__field {
   outline: none;
-  caret-color: #3d06d7;
+  caret-color: var(--app-color-accent);
 }
 
 .numeric-input__suffix {
   position: relative;
   z-index: 1;
-  font-family: "Inter", system-ui, sans-serif;
-  font-size: 18px;
-  line-height: 100%;
-  color: #1e0e4c;
 }
 </style>
