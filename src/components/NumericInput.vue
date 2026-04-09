@@ -137,7 +137,7 @@ watchEffect(() => {
           />
         </div>
       </div>
-      <span class="numeric-input__suffix">{{ suffix }}</span>
+      <span class="numeric-input__suffix typography-caption">{{ suffix }}</span>
     </div>
   </div>
 </template>
@@ -218,10 +218,5 @@ watchEffect(() => {
 .numeric-input__field {
   outline: none;
   caret-color: var(--app-color-accent);
-}
-
-.numeric-input__suffix {
-  position: relative;
-  z-index: 1;
 }
 </style>
