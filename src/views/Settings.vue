@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import NumericInput from '@/components/NumericInput.vue';
-import { store } from '@/store';
+import NumericInput from '@/components/NumericInput.vue'
+import { store } from '@/store'
 </script>
 
 <template>

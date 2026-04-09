@@ -1,6 +1,6 @@
 :root {
-  --app-font-caption: "Koulen", system-ui, sans-serif;
-  --app-font-body: "Inter", system-ui, sans-serif;
+  --app-font-caption: 'Koulen', system-ui, sans-serif;
+  --app-font-body: 'Inter', system-ui, sans-serif;
 
   --app-color-text: #1e0e4c;
   --app-color-accent: #3d06d7;
@@ -8,65 +8,46 @@
   --app-color-border: #cfcadf;
   --app-color-border-hover: #aa9dce;
   --app-color-border-focus: #906fee;
-
-  --typography-title-font-family: var(--app-font-caption);
-  --typography-title-font-size: 20px;
-  --typography-title-line-height: 1.2;
-  --typography-title-letter-spacing: 0.02em;
-  --typography-title-color: var(--app-color-text);
-
-  --typography-caption-font-family: var(--app-font-caption);
-  --typography-caption-font-size: 16px;
-  --typography-caption-line-height: 15px;
-  --typography-caption-letter-spacing: 0.02em;
-  --typography-caption-color: var(--app-color-text);
-
-  --typography-body-med-font-family: var(--app-font-body);
-  --typography-body-med-font-size: 18px;
-  --typography-body-med-line-height: 1;
-  --typography-body-med-font-weight: 500;
-
-  --typography-body-reg-font-family: var(--app-font-body);
-  --typography-body-reg-font-size: 18px;
-  --typography-body-reg-line-height: 1;
-  --typography-body-reg-font-weight: 400;
-
-  --typography-link-font-family: var(--app-font-body);
-  --typography-link-font-size: 14px;
-  --typography-link-line-height: 1.2;
-  --typography-link-color: var(--app-color-accent);
+  --app-color-surface: #fff;
 }
 
 .typography-title {
   margin: 0;
-  font-family: var(--typography-title-font-family);
-  font-size: var(--typography-title-font-size);
-  line-height: var(--typography-title-line-height);
-  letter-spacing: var(--typography-title-letter-spacing);
-  color: var(--typography-title-color);
+  font-family: var(--app-font-caption);
+  font-size: 20px;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  color: var(--app-color-text);
 }
 
 .typography-label {
-  font-family: var(--typography-caption-font-family);
-  font-size: var(--typography-caption-font-size);
-  line-height: var(--typography-caption-line-height);
-  letter-spacing: var(--typography-caption-letter-spacing);
-  color: var(--typography-caption-color);
+  font-family: var(--app-font-caption);
+  font-size: 16px;
+  line-height: 15px;
+  letter-spacing: 0.02em;
+  color: var(--app-color-text);
 }
 
-.typography-caption {
-  font-family: var(--typography-body-reg-font-family);
-  font-weight: var(--typography-body-reg-font-weight);
-  font-size: var(--typography-body-reg-font-size);
-  line-height: var(--typography-body-reg-line-height);
+.typography-body-med {
+  font-family: var(--app-font-body);
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 1;
+}
+
+.typography-body-reg {
+  font-family: var(--app-font-body);
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1;
   color: var(--app-color-text);
 }
 
 .typography-link {
-  font-family: var(--typography-link-font-family);
-  font-size: var(--typography-link-font-size);
-  line-height: var(--typography-link-line-height);
-  color: var(--typography-link-color);
+  font-family: var(--app-font-body);
+  font-size: 14px;
+  line-height: 1.2;
+  color: var(--app-color-accent);
   text-decoration: none;
 }
 

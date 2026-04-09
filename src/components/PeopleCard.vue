@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { RouterLink } from "vue-router";
 
-const props = withDefaults(
+withDefaults(
   defineProps<{
     to: string;
     name: string;
@@ -34,12 +34,13 @@ const props = withDefaults(
   max-width: 100%;
   padding: 12px 16px;
   border-radius: 6px;
-  border: 1px solid #cfcadf;
-  background: #fff;
+  border: 1px solid var(--app-color-border);
+  background: var(--app-color-surface);
+  box-shadow: 0 0 0 0 transparent;
 }
 
 .people-card:hover {
-  border-color: #aa9dce;
+  border-color: var(--app-color-border-hover);
 }
 
 .people-card__avatar {
@@ -51,10 +52,10 @@ const props = withDefaults(
 }
 
 .people-card__body {
-  align-self: center;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  align-self: center;
   gap: 12px;
   min-width: 0;
 }

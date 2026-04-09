@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, nextTick, ref, useId, watchEffect } from 'vue';
+import { computed, nextTick, ref, useId, watchEffect } from "vue";
 
 const props = withDefaults(
   defineProps<{
@@ -27,17 +27,17 @@ const shellHorizontalChromePx = 26;
 
 const integerDigits = computed(() => String(modelValue.value ?? 0));
 
-const digitsOnly = (value: string): string => value.replace(/\D/g, '');
+const digitsOnly = (value: string): string => value.replace(/\D/g, "");
 
 const formatGrouped = (digits: string): string => {
-  return digits.replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
+  return digits.replace(/\B(?=(\d{3})+(?!\d))/g, " ");
 };
 
 const formattedDisplay = computed(() => formatGrouped(integerDigits.value));
 const measureText = computed(() => formattedDisplay.value);
 
 const countDigitsBeforeCursor = (text: string, cursor: number): number => {
-  return text.slice(0, cursor).replace(/\D/g, '').length;
+  return text.slice(0, cursor).replace(/\D/g, "").length;
 };
 
 function cursorAfterNthDigit(formatted: string, digitsLeft: number): number {
@@ -83,7 +83,7 @@ const handlePaste = (event: ClipboardEvent) => {
   event.preventDefault();
 
   const target = event.target as HTMLInputElement;
-  const pasted = digitsOnly(event.clipboardData?.getData('text') ?? '');
+  const pasted = digitsOnly(event.clipboardData?.getData("text") ?? "");
 
   const start = target.selectionStart ?? 0;
   const end = target.selectionEnd ?? 0;
@@ -120,7 +120,11 @@ watchEffect(() => {
     <div class="numeric-input__row">
       <div class="numeric-input__shell" :style="{ width: `${shellWidthPx}px` }">
         <div class="numeric-input__text-slot">
-          <span ref="measureRef" class="numeric-input__measure" aria-hidden="true">
+          <span
+            ref="measureRef"
+            class="numeric-input__measure typography-body-med"
+            aria-hidden="true"
+          >
             {{ measureText }}
           </span>
           <input
@@ -128,7 +132,7 @@ watchEffect(() => {
             type="text"
             inputmode="numeric"
             autocomplete="off"
-            class="numeric-input__field"
+            class="numeric-input__field typography-body-med"
             :aria-labelledby="labelId"
             :value="formattedDisplay"
             @beforeinput="handleBeforeInput"
@@ -137,7 +141,7 @@ watchEffect(() => {
           />
         </div>
       </div>
-      <span class="numeric-input__suffix typography-caption">{{ suffix }}</span>
+      <span class="numeric-input__suffix typography-body-reg">{{ suffix }}</span>
     </div>
   </div>
 </template>
@@ -204,10 +208,6 @@ watchEffect(() => {
 
 .numeric-input__measure,
 .numeric-input__field {
-  font-family: var(--typography-body-med-font-family);
-  font-weight: var(--typography-body-med-font-weight);
-  font-size: var(--typography-body-med-font-size);
-  line-height: var(--typography-body-med-line-height);
   color: var(--app-color-text-muted);
 }
 

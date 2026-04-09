@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { computed } from 'vue';
-import PeopleCard from '@/components/PeopleCard.vue';
-import { store } from '@/store';
+import { computed } from "vue";
+import PeopleCard from "@/components/PeopleCard.vue";
+import { store } from "@/store";
 
 const peopleWithYears = computed(() => {
   return store.people.map((person) => ({
