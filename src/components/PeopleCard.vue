@@ -1,22 +1,23 @@
 <script setup lang="ts">
-import { RouterLink } from 'vue-router'
+import { RouterLink } from "vue-router";
+import { DEFAULT_IMAGE_PATH } from "@/store";
 
 withDefaults(
   defineProps<{
     to: string;
     name: string;
     ageInYears: number;
-    imageSrc?: string;
+    imagePath?: string;
   }>(),
   {
-    imageSrc: '/img.png',
+    imagePath: DEFAULT_IMAGE_PATH,
   },
 );
 </script>
 
 <template>
   <RouterLink :to="to" class="people-card">
-    <img class="people-card__avatar" :src="imageSrc" :alt="name" width="80" height="80" />
+    <img class="people-card__avatar" :src="imagePath" :alt="name" width="80" height="80" />
     <div class="people-card__body">
       <div class="people-card__caption typography-label">
         {{ name.toUpperCase() }}

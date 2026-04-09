@@ -8,7 +8,7 @@ const route = useRoute();
 
 const person = computed(() => {
   const id = Number(route.params.id);
-  return store.people.find((p) => p.id === id);
+  return store.people.find((item) => item.id === id);
 });
 </script>
 
@@ -18,7 +18,7 @@ const person = computed(() => {
 
     <div class="group flex items-center gap-4">
       <img
-        src="/img.png"
+        :src="person.imagePath"
         :alt="person.name"
         class="photo-avatar h-20 w-20 shrink-0 rounded-full border border-transparent object-cover group-focus-within:border-[#3d06d7]"
       />

@@ -1,11 +1,10 @@
 <script setup lang="ts">
-import { computed, nextTick, ref, useId, watchEffect } from "vue";
+import { computed, nextTick, ref, watchEffect } from "vue";
 
 const props = withDefaults(
   defineProps<{
     label: string;
     suffix: string;
-    inputId?: string;
     minWidthPx?: number;
   }>(),
   {
@@ -15,10 +14,6 @@ const props = withDefaults(
 );
 
 const modelValue = defineModel<number>({ required: true });
-
-const fallbackInputId = useId();
-const labelId = useId();
-const inputId = computed(() => props.inputId ?? fallbackInputId);
 
 const measureRef = ref<HTMLSpanElement | null>(null);
 const shellWidthPx = ref(props.minWidthPx);
@@ -114,7 +109,7 @@ watchEffect(() => {
 
 <template>
   <div class="numeric-input">
-    <div :id="labelId" class="numeric-input__label typography-label">
+    <div class="numeric-input__label typography-label">
       {{ label }}
     </div>
     <div class="numeric-input__row">
@@ -128,12 +123,10 @@ watchEffect(() => {
             {{ measureText }}
           </span>
           <input
-            :id="inputId"
             type="text"
             inputmode="numeric"
             autocomplete="off"
             class="numeric-input__field typography-body-med"
-            :aria-labelledby="labelId"
             :value="formattedDisplay"
             @beforeinput="handleBeforeInput"
             @paste="handlePaste"
